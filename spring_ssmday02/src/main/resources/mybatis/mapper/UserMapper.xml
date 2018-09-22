@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itheima.sh.mapper.UserMapper">
+
+    <select id="findAllUsers" resultType="User">
+        select * from tb_user
+    </select>
+
+    <insert id="saveUser">
+        INSERT INTO tb_user (
+		id,
+		user_name,
+		password,
+		name,
+		age,
+		sex,
+		birthday,
+		created,
+		updated
+		)
+		VALUES
+		(
+		#{id},
+		#{userName},
+		#{password},
+		#{name},
+		#{age},
+		#{sex},
+		#{birthday},
+		NOW(),
+		NOW()
+		)
+    </insert>
+
+</mapper>

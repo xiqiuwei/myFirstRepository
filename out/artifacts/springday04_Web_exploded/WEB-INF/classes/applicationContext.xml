@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+        <context:property-placeholder location="jdbc.properties"/>
+        <context:component-scan base-package="com.itheima.sh"/>
+
+        <bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+                <property name="dataSource" ref="dataSource"/>
+        </bean>
+
+        <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+                <property name="driverClassName" value="${jdbc.driverClass}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+        </bean>
+        <!--配置事务管理-->
+        <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+              <property name="dataSource" ref="dataSource"/>
+        </bean>
+        <!--
+        配置事务的属性
+        指定advice的id,后边要用到
+        transaction-Manager写的是事务管理器的id
+        -->
+        <tx:advice id="txAdvice" transaction-manager="transactionManager">
+                <tx:attributes>
+                        <!--find开头的方法只读-->
+                        <tx:method name="find*" read-only="true"/>
+                        <!--其余的方法是加可读写的-->
+                        <tx:method name="*"/>
+                </tx:attributes>
+        </tx:advice>
+        <aop:config>
+                <!--配置切入点表达式:告诉框架哪些方法要控制事务-->
+                <aop:pointcut id="pt" expression="execution(* com.itheima.sh.service.impl.*.*(..))" />
+                <!--将定义好的事务属性添加到上述的切入点-->
+                <aop:advisor advice-ref="txAdvice" pointcut-ref="pt"/>
+        </aop:config>
+</beans>

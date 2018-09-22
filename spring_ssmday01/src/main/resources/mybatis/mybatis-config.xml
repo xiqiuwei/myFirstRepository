@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!-- 开启驼峰匹配：经典的数据库列名（多个单词下划线连接）映射到经典的java属性名（多个单词驼峰连接） -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--开启延时加载-->
+        <!--<setting name="lazyLoadingEnabled" value="true"/>-->
+        <!--开启按需加载-->
+        <!--<setting name="aggressiveLazyLoading" value="false"/>-->
+    </settings>
+    <!--<typeAliases>-->
+        <!--<package name="com.itheima.sh.domain"/>-->
+    <!--</typeAliases>-->
+
+    <!-- 映射文件 -->
+    <!--<mappers>-->
+        <!--<mapper resource="mybatis/mapper/UserMapper.xml"/>-->
+    <!--</mappers>-->
+</configuration>

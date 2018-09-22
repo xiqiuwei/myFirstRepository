@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/itheima-parent.iml" filepath="$PROJECT_DIR$/itheima-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc/spring_mvc.iml" filepath="$PROJECT_DIR$/spring_mvc/spring_mvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_ssmday01/spring_ssmday01.iml" filepath="$PROJECT_DIR$/spring_ssmday01/spring_ssmday01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_ssmday02/spring_ssmday02.iml" filepath="$PROJECT_DIR$/spring_ssmday02/spring_ssmday02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springday03/springday03.iml" filepath="$PROJECT_DIR$/springday03/springday03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springday04/springday04.iml" filepath="$PROJECT_DIR$/springday04/springday04.iml" />
+    </modules>
+  </component>
+</project>
