@@ -1,7 +1,7 @@
-# 初学者框架小项目
+# l am a lajicoder
 
 #### 项目介绍
-初学者自学代码
+first stduy java
 
 #### 软件架构
 软件架构说明
